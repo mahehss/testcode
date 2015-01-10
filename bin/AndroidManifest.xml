@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shopsmart.shop"
+    android:versionCode="12"
+    android:versionName="1.3.9" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+  	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+  	<!-- External storage for caching. -->
+  	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  	<!-- My Location -->
+  	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-feature android:required="true" android:name="android.hardware.location.gps"/>
+	
+	 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:name="com.shopsmart.shop.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.shopsmart.shop.permission.C2D_MESSAGE" />
+	
+	<permission
+    	android:name="com.shopsmart.shop.permission.MAPS_RECEIVE"
+    	android:protectionLevel="signature"/>
+  	<uses-permission android:name="com.shopsmart.shop.permission.MAPS_RECEIVE"/>
+      
+	<!-- Maps API needs OpenGL ES 2.0. -->
+  	<uses-feature
+    	android:glEsVersion="0x00020000"
+    	android:required="true"/>
+  	<!-- End of copy. -->
+  	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:logo="@drawable/logo"
+        android:theme="@style/Theme.Apptheme">
+        
+        <!-- Admob  -->
+        <meta-data 
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        
+		<!-- You must insert your own Google Maps for Android API v2 key in here.  -->
+	    <meta-data
+	    android:name="com.google.android.maps.v2.API_KEY"
+	    android:value="AIzaSyC2wQuPm5qsMiJir2yidldZRyNnfxJKH08"/>
+	    
+	    <meta-data
+	    android:name="com.google.android.gms.version"
+	    android:value="@integer/google_play_services_version"/>
+	    
+	    
+        <activity
+            android:name="com.shopsmart.shop.ActivitySplash"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Sherlock.NoActionBar"
+            android:noHistory="true" 
+            android:screenOrientation="portrait" >
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+          
+        </activity>
+        <activity
+            android:name="com.shopsmart.shop.ActivityHome"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityPlaceAroundYou"
+            android:screenOrientation="portrait"
+            android:label="@string/page_around_you" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityCategory"
+            android:screenOrientation="portrait"
+            android:label="@string/page_category" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityAddOffer"
+            android:screenOrientation="portrait"
+            android:label="@string/add_offer" >
+             
+        </activity>
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityDetailPlace"
+            android:screenOrientation="portrait"
+            android:label="@string/page_detail_place" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivitySearch"
+            android:screenOrientation="portrait"
+            android:label="@string/page_search" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivitySetting"
+            android:screenOrientation="portrait"
+            android:label="@string/page_setting" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityShare"
+            android:label="@string/page_share" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityAbout"
+            android:label="@string/page_about" />
+        
+        <activity
+            android:name="com.shopsmart.shop.ActivityDirection"
+            android:label="@string/direction" />
+ 
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+         <service android:name="com.shopsmart.shop.libraries.ServiceNotification" android:process=":remote" />
+          <receiver
+            android:name="com.shopsmart.shop.libraries.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.shopsmart.shop" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.shopsmart.shop.libraries.GcmIntentService" />
+    </application>
+
+</manifest>

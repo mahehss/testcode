@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="horizontal"
+	android:padding="@dimen/padding_list" android:focusable="false"
+android:focusableInTouchMode="false">
+<ImageView
+	    android:id="@+id/imgThumbnail"
+	    android:layout_width="@dimen/thumb_width"
+	    android:layout_height="@dimen/thumb_height"
+	    android:layout_marginRight="@dimen/thumb_margin_right"
+	     android:layout_marginEnd="@dimen/thumb_margin_right"
+	    android:contentDescription="@string/app_name"
+	    android:scaleType="centerCrop"/>	
+	    
+<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+	>
+	
+	<TextView 
+			android:id="@+id/lblTitle" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:textColor="@color/text_title"
+			android:textStyle="bold"
+			style="@android:style/TextAppearance.Medium"
+			android:layout_marginBottom="@dimen/title_margin_bottom"
+			android:focusable="false"
+android:focusableInTouchMode="false"
+			/>
+			
+<TextView android:id="@+id/lblOfferShortDec"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+		android:focusable="false"
+android:focusableInTouchMode="false"
+			/>
+
+<TextView android:id="@+id/lblOfferDistance"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+		android:focusable="false"
+android:focusableInTouchMode="false"
+android:layout_marginBottom="@dimen/distance_margin_bottom"
+	style="@android:style/TextAppearance.Small"
+	android:textColor="@color/distance"
+			/>
+	 
+</LinearLayout>
+
+</LinearLayout>
+	
